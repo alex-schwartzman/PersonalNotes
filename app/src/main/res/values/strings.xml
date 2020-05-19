@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Personal Notes</string>
+    <string name="note_details_title">Edit Note</string>
+    <string name="updated_note">Uploaded note to ze cloud</string>
 </resources>

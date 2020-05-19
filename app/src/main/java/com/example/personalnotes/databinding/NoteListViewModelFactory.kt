@@ -1,4 +1,4 @@
-package com.example.personalnotes.viewmodel
+package com.example.personalnotes.databinding
 
 import android.os.Bundle
 import androidx.lifecycle.AbstractSavedStateViewModelFactory

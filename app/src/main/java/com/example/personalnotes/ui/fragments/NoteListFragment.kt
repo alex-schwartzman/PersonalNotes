@@ -1,4 +1,4 @@
-package com.example.personalnotes.ui.main
+package com.example.personalnotes.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.lifecycle.observe
 import com.example.personalnotes.databinding.FragmentNoteListBinding
 import com.example.personalnotes.datastore.InjectorUtils
 import com.example.personalnotes.ui.adapters.NoteAdapter
-import com.example.personalnotes.viewmodel.NoteListViewModel
+import com.example.personalnotes.databinding.NoteListViewModel
 
 class NoteListFragment : Fragment() {
 

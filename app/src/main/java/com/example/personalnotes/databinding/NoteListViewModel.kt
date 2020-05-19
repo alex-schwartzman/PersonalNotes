@@ -1,4 +1,4 @@
-package com.example.personalnotes.viewmodel
+package com.example.personalnotes.databinding
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle

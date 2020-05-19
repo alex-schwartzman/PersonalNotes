@@ -30,6 +30,42 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
         return newsData
     }
 
+    fun getNote(id: String): MutableLiveData<NoteModel?> {
+        val noteModelData: MutableLiveData<NoteModel?> = MutableLiveData<NoteModel?>()
+        notesApi.getNote(id).enqueue(object : Callback<NoteModel?> {
+            override fun onResponse(call: Call<NoteModel?>,
+                                    response: Response<NoteModel?>) {
+                if (response.isSuccessful()) {
+                    noteModelData.setValue(response.body())
+                }
+            }
+
+            override fun onFailure(call: Call<NoteModel?>, t: Throwable) {
+                noteModelData.setValue(null)
+            }
+        })
+        return noteModelData
+    }
+
+    fun update(note: NoteModel): MutableLiveData<NoteModel?> {
+        val noteModelData: MutableLiveData<NoteModel?> = MutableLiveData<NoteModel?>()
+
+        notesApi.updateNote(note.id, note).enqueue(object : Callback<NoteModel?> {
+            override fun onResponse(call: Call<NoteModel?>,
+                                    response: Response<NoteModel?>) {
+                if (response.isSuccessful()) {
+                    noteModelData.setValue(response.body())
+                }
+            }
+
+            override fun onFailure(call: Call<NoteModel?>, t: Throwable) {
+                noteModelData.setValue(null)
+            }
+        })
+
+        return noteModelData
+    }
+
     companion object {
         @Volatile private var instance: NoteRepository? = null
 

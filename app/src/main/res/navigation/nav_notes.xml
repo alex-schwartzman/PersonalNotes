@@ -6,13 +6,23 @@
 
     <fragment
         android:id="@+id/view_pager_fragment"
-        android:name="com.example.personalnotes.ui.main.NoteListFragment"
+        android:name="com.example.personalnotes.ui.fragments.NoteListFragment"
         tools:layout="@layout/fragment_note_list">
 
         <action
             android:id="@+id/action_view_pager_fragment_to_note_detail_fragment"
-            app:destination="@id/view_pager_fragment" />
-<!--        no navigation yet-->
+            app:destination="@id/note_detail_fragment" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/note_detail_fragment"
+        android:name="com.example.personalnotes.ui.fragments.NoteDetailFragment"
+        android:label="@string/note_details_title"
+        tools:layout="@layout/fragment_note_detail">
+        <argument
+            android:name="noteId"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

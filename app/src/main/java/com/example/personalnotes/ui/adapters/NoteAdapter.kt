@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personalnotes.databinding.ListItemNoteBinding
 import com.example.personalnotes.dto.NoteModel
-import com.example.personalnotes.ui.main.NoteListFragmentDirections
+import com.example.personalnotes.ui.fragments.NoteListFragmentDirections
 
 class NoteAdapter : ListAdapter<NoteModel, RecyclerView.ViewHolder>(NoteDiffCallback()) {
 
@@ -43,7 +43,7 @@ class NoteAdapter : ListAdapter<NoteModel, RecyclerView.ViewHolder>(NoteDiffCall
         ) {
             val direction =
                 NoteListFragmentDirections.actionViewPagerFragmentToNoteDetailFragment(
-//                    note.id
+                    note.id
                 )
             view.findNavController().navigate(direction)
         }
