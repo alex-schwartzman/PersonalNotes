@@ -1,6 +1,7 @@
 package com.example.personalnotes.datastore
 
 import com.example.personalnotes.dto.NoteModel
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,6 +20,6 @@ interface NotesApi {
     fun updateNote(@Path("id") id: String, @Body note: NoteModel): Call<NoteModel>
 
     @DELETE("notes/{id}")
-    fun deleteNote(@Path("id") id: String): Call<NoteModel>
+    fun deleteNote(@Path("id") id: String): Call<ResponseBody>
 
 }

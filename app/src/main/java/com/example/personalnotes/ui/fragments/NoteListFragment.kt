@@ -11,6 +11,7 @@ import com.example.personalnotes.databinding.FragmentNoteListBinding
 import com.example.personalnotes.datastore.InjectorUtils
 import com.example.personalnotes.ui.adapters.NoteAdapter
 import com.example.personalnotes.databinding.NoteListViewModel
+import com.example.personalnotes.dto.NoteModel
 
 class NoteListFragment : Fragment() {
 

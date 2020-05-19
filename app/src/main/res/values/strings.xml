@@ -2,4 +2,6 @@
     <string name="app_name">Personal Notes</string>
     <string name="note_details_title">Edit Note</string>
     <string name="updated_note">Uploaded note to ze cloud</string>
+    <string name="deleted_note">Note was deleted forever</string>
+    <string name="delete_button">delete</string>
 </resources>

@@ -9,10 +9,14 @@ class NoteDetailViewModel(
     private val noteId: String
 ) : ViewModel() {
 
-    fun update(note: NoteModel) {
-        noteRepository.update(note);
-    }
-
     val id = noteId
     val note = noteRepository.getNote(noteId)
+
+    fun delete(){
+        noteRepository.delete(id)
+    }
+
+    fun update() {
+        note.value?.let { noteRepository.update(it) };
+    }
 }

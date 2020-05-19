@@ -34,22 +34,31 @@ class NoteDetailFragment : Fragment() {
         ).apply {
             viewModel = noteDetailViewModel
             lifecycleOwner = viewLifecycleOwner
-            callback = object : Callback {
-                override fun save(note: NoteModel?) {
-                    note?.let {
-                        noteDetailViewModel.update(it)
-                        Snackbar.make(root, R.string.updated_note, Snackbar.LENGTH_LONG)
+            saveCallback = object : SaveCallback {
+                override fun save() {
+                        noteDetailViewModel.update()
+                        Snackbar.make(root.rootView, R.string.updated_note, Snackbar.LENGTH_LONG)
                             .show()
                         findNavController().navigateUp()
-                    }
+                }
+            }
+
+            deleteCallback = object : DeleteCallback {
+                override fun delete() {
+                        noteDetailViewModel.delete()
+                        Snackbar.make(root.rootView, R.string.deleted_note, Snackbar.LENGTH_LONG)
+                            .show()
+                        findNavController().navigateUp()
                 }
             }
         }
-
         return binding.root
     }
 
-    interface Callback {
-        fun save(note: NoteModel?)
+    interface DeleteCallback {
+        fun delete()
+    }
+    interface SaveCallback {
+        fun save()
     }
 }

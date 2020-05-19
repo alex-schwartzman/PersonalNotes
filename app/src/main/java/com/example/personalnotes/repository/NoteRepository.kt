@@ -3,6 +3,7 @@ package com.example.personalnotes.repository
 import androidx.lifecycle.MutableLiveData
 import com.example.personalnotes.datastore.NotesApi
 import com.example.personalnotes.dto.NoteModel
+import okhttp3.ResponseBody
 import retrofit2.Callback
 import retrofit2.Call
 import retrofit2.Response
@@ -64,6 +65,16 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
         })
 
         return noteModelData
+    }
+
+    fun delete(noteId: String) {
+        notesApi.deleteNote(noteId).enqueue(object : Callback<ResponseBody> {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            }
+
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            }
+        })
     }
 
     companion object {
