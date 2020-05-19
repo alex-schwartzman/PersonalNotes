@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/view_pager_fragment">
+
+    <fragment
+        android:id="@+id/view_pager_fragment"
+        android:name="com.example.personalnotes.ui.main.NoteListFragment"
+        tools:layout="@layout/fragment_note_list">
+
+        <action
+            android:id="@+id/action_view_pager_fragment_to_note_detail_fragment"
+            app:destination="@id/view_pager_fragment" />
+<!--        no navigation yet-->
+
+    </fragment>
+</navigation>
