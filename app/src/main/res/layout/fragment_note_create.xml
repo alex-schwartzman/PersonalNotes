@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.example.personalnotes.dto.NoteModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.personalnotes.databinding.NoteCreateViewModel" />
+
+        <variable
+            name="createCallback"
+            type="com.example.personalnotes.ui.fragments.NoteCreateFragment.CreateCallback" />
+
+        <variable
+            name="discardCallback"
+            type="com.example.personalnotes.ui.fragments.NoteCreateFragment.DiscardCallback" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        android:fitsSystemWindows="true"
+        tools:context=".MainActivity"
+        tools:ignore="MergeRootFrame">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.id}"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintBottom_toTopOf="@id/note_detail_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="#2" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/note_detail_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:text="@={viewModel.note.title}"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_anchor="@id/id_text"
+                app:layout_constraintTop_toBottomOf="@id/id_text"
+                tools:text="Apple" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_normal"
+                android:contentDescription="@string/delete_button"
+                android:src="@android:drawable/ic_delete"
+                tools:src="@android:drawable/ic_delete"
+                android:onClick="@{() -> discardCallback.discard()}"/>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{() -> createCallback.create()}"
+            app:srcCompat="@android:drawable/ic_menu_save" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

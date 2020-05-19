@@ -13,6 +13,10 @@
             android:id="@+id/action_view_pager_fragment_to_note_detail_fragment"
             app:destination="@id/note_detail_fragment" />
 
+        <action
+            android:id="@+id/action_view_pager_fragment_to_note_create_fragment"
+            app:destination="@id/note_create_fragment" />
+
     </fragment>
 
     <fragment
@@ -23,6 +27,13 @@
         <argument
             android:name="noteId"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/note_create_fragment"
+        android:name="com.example.personalnotes.ui.fragments.NoteCreateFragment"
+        android:label="@string/note_create_title"
+        tools:layout="@layout/fragment_note_create">
     </fragment>
 
 </navigation>

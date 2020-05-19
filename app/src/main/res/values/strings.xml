@@ -4,4 +4,7 @@
     <string name="updated_note">Uploaded note to ze cloud</string>
     <string name="deleted_note">Note was deleted forever</string>
     <string name="delete_button">delete</string>
+    <string name="discarded_draft_note">Draft was discarded</string>
+    <string name="created_note">Created new note in ze cloud</string>
+    <string name="note_create_title">New note</string>
 </resources>

@@ -37,13 +37,8 @@ class NoteAdapter : ListAdapter<NoteModel, RecyclerView.ViewHolder>(NoteDiffCall
             }
         }
 
-        private fun navigateToNote(
-            note: NoteModel,
-            view: View
-        ) {
-            val direction =
-                NoteListFragmentDirections.actionViewPagerFragmentToNoteDetailFragment(note.id)
-            view.findNavController().navigate(direction)
+        private fun navigateToNote(note: NoteModel, view: View) {
+            view.findNavController().navigate(NoteListFragmentDirections.actionViewPagerFragmentToNoteDetailFragment(note.id))
         }
 
         fun bind(item: NoteModel) {

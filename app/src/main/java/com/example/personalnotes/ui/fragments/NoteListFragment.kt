@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.personalnotes.databinding.FragmentNoteListBinding
 import com.example.personalnotes.datastore.InjectorUtils
 import com.example.personalnotes.ui.adapters.NoteAdapter
 import com.example.personalnotes.databinding.NoteListViewModel
-import com.example.personalnotes.dto.NoteModel
 
 class NoteListFragment : Fragment() {
 
@@ -30,6 +30,9 @@ class NoteListFragment : Fragment() {
         binding.noteList.adapter = adapter
         viewModel.notes.observe(viewLifecycleOwner) { notes ->
             adapter.submitList(notes)
+        }
+        binding.newItemClickListener = View.OnClickListener {
+            findNavController().navigate(NoteListFragmentDirections.actionViewPagerFragmentToNoteCreateFragment())
         }
         return binding.root
     }
