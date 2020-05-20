@@ -7,4 +7,5 @@
     <string name="discarded_draft_note">Draft was discarded</string>
     <string name="created_note">Created new note in ze cloud</string>
     <string name="note_create_title">New note</string>
+    <string name="notes_list_toolbar_description">Notes list</string>
 </resources>
