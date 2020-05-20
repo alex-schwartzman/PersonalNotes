@@ -11,11 +11,19 @@
 
         <action
             android:id="@+id/action_view_pager_fragment_to_note_detail_fragment"
-            app:destination="@id/note_detail_fragment" />
+            app:destination="@id/note_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
         <action
             android:id="@+id/action_view_pager_fragment_to_note_create_fragment"
-            app:destination="@id/note_create_fragment" />
+            app:destination="@id/note_create_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -31,7 +39,11 @@
 
         <action
             android:id="@+id/action_detail_fragment_to_delete_confirmation_fragment"
-            app:destination="@id/delete_confirmation_fragment" />
+            app:destination="@id/delete_confirmation_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -48,6 +60,5 @@
         android:id="@+id/note_create_fragment"
         android:name="com.example.personalnotes.ui.fragments.NoteCreateFragment"
         android:label="@string/note_create_title"
-        tools:layout="@layout/fragment_note_create">
-    </fragment>
+        tools:layout="@layout/fragment_note_create" />
 </navigation>
