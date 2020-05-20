@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,27 +33,34 @@ class NoteCreateFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             createCallback = object : CreateCallback {
                 override fun create() {
-                        noteCreateViewModel.create()
-                        Snackbar.make(root.rootView, R.string.created_note, Snackbar.LENGTH_LONG)
-                            .show()
-                        findNavController().navigateUp()
+                    noteCreateViewModel.create()
+                    Snackbar.make(root.rootView, R.string.created_note, Snackbar.LENGTH_LONG)
+                        .show()
+                    findNavController().navigateUp()
                 }
             }
 
             discardCallback = object : DiscardCallback {
                 override fun discard() {
-                        Snackbar.make(root.rootView, R.string.discarded_draft_note, Snackbar.LENGTH_LONG)
-                            .show()
-                        findNavController().navigateUp()
+                    Snackbar.make(
+                        root.rootView,
+                        R.string.discarded_draft_note,
+                        Snackbar.LENGTH_LONG
+                    )
+                        .show()
+                    findNavController().navigateUp()
                 }
             }
         }
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
         return binding.root
     }
 
     interface DiscardCallback {
         fun discard()
     }
+
     interface CreateCallback {
         fun create()
     }

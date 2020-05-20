@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="newItemClickListener"
             type="android.view.View.OnClickListener" />
@@ -21,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/collapsing_image_height"
             android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
@@ -51,12 +50,8 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="@android:color/transparent"
                     app:layout_collapseMode="pin">
-
-
                 </androidx.appcompat.widget.Toolbar>
-
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-
         </com.google.android.material.appbar.AppBarLayout>
 
 
