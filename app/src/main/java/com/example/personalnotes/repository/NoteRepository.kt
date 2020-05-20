@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.personalnotes.datastore.NotesApi
 import com.example.personalnotes.dto.NoteModel
 import okhttp3.ResponseBody
-import retrofit2.Callback
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
@@ -17,7 +17,7 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
             override fun onResponse(call: Call<List<NoteModel>>,
                                     response: Response<List<NoteModel>>
             ) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful) {
                     newsData.setValue(response.body())
                 }else{
                     newsData.setValue(LinkedList<NoteModel>())
@@ -25,7 +25,7 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
             }
 
             override fun onFailure(call: Call<List<NoteModel>>, t: Throwable) {
-                newsData.setValue(LinkedList<NoteModel>())
+                newsData.value = LinkedList<NoteModel>()
             }
         })
         return newsData
@@ -36,13 +36,13 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
         notesApi.getNote(id).enqueue(object : Callback<NoteModel?> {
             override fun onResponse(call: Call<NoteModel?>,
                                     response: Response<NoteModel?>) {
-                if (response.isSuccessful()) {
-                    noteModelData.setValue(response.body())
+                if (response.isSuccessful) {
+                    noteModelData.value = response.body()
                 }
             }
 
             override fun onFailure(call: Call<NoteModel?>, t: Throwable) {
-                noteModelData.setValue(null)
+                noteModelData.value = null
             }
         })
         return noteModelData
@@ -54,13 +54,13 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
         notesApi.updateNote(note.id, note).enqueue(object : Callback<NoteModel?> {
             override fun onResponse(call: Call<NoteModel?>,
                                     response: Response<NoteModel?>) {
-                if (response.isSuccessful()) {
-                    noteModelData.setValue(response.body())
+                if (response.isSuccessful) {
+                    noteModelData.value = response.body()
                 }
             }
 
             override fun onFailure(call: Call<NoteModel?>, t: Throwable) {
-                noteModelData.setValue(null)
+                noteModelData.value = null
             }
         })
 
@@ -83,13 +83,13 @@ class NoteRepository private constructor(private val notesApi: NotesApi) {
         notesApi.createNote(note).enqueue(object : Callback<NoteModel?> {
             override fun onResponse(call: Call<NoteModel?>,
                                     response: Response<NoteModel?>) {
-                if (response.isSuccessful()) {
-                    noteModelData.setValue(response.body())
+                if (response.isSuccessful) {
+                    noteModelData.value = response.body()
                 }
             }
 
             override fun onFailure(call: Call<NoteModel?>, t: Throwable) {
-                noteModelData.setValue(null)
+                noteModelData.value = null
             }
         })
 

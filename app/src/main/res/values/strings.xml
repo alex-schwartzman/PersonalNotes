@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Personal Notes</string>
     <string name="note_details_title">Edit Note</string>
-    <string name="updated_note">Uploaded note to ze cloud</string>
+    <string name="updated_note">Updated(rewrote) note in ze cloud</string>
     <string name="deleted_note">Note was deleted forever</string>
     <string name="delete_button">delete</string>
     <string name="discarded_draft_note">Draft was discarded</string>
     <string name="created_note">Created new note in ze cloud</string>
     <string name="note_create_title">New note</string>
     <string name="notes_list_toolbar_description">Notes list</string>
+    <string name="note_edit_title">Edit note</string>
+    <string name="delete_button_text">DELETE</string>
+    <string name="note_delete_confirmation">Confirm delete</string>
+    <string name="note_deletion_long_warning">The following note will be irreversibly deleted from ze cloud storage:</string>
+    <string name="cancel_deletion_text">BACK</string>
 </resources>

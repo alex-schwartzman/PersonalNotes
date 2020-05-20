@@ -19,6 +19,6 @@ class NoteListViewModelFactory(
         modelClass: Class<T>,
         handle: SavedStateHandle
     ): T {
-        return NoteListViewModel(repository, handle) as T
+        return NoteListViewModel(repository) as T
     }
 }

@@ -13,5 +13,5 @@ class NoteCreateViewModel(
 
     fun create() {
         noteRepository.create(note)
-    };
+    }
 }

@@ -27,6 +27,21 @@
         <argument
             android:name="noteId"
             app:argType="string" />
+
+
+        <action
+            android:id="@+id/action_detail_fragment_to_delete_confirmation_fragment"
+            app:destination="@id/delete_confirmation_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/delete_confirmation_fragment"
+        android:name="com.example.personalnotes.ui.fragments.NoteDeleteConfirmationFragment"
+        android:label="@string/note_delete_confirmation"
+        tools:layout="@layout/fragment_delete_confirmation">
+        <argument
+            android:name="noteId"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -35,5 +50,4 @@
         android:label="@string/note_create_title"
         tools:layout="@layout/fragment_note_create">
     </fragment>
-
 </navigation>
