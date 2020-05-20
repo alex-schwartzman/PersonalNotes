@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -17,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class NoteDeleteConfirmationFragment : Fragment() {
 
+    private lateinit var binding: FragmentDeleteConfirmationBinding
     private val args: NoteDeleteConfirmationFragmentArgs by navArgs()
 
     private val noteDetailViewModel: NoteDetailViewModel by viewModels {
@@ -28,27 +28,26 @@ class NoteDeleteConfirmationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentDeleteConfirmationBinding>(
-            inflater, R.layout.fragment_delete_confirmation, container, false
-        ).apply {
-            viewModel = noteDetailViewModel
-            lifecycleOwner = viewLifecycleOwner
-            confirmationCallback = object : ConfirmedCallback {
-                override fun confirm() {
-                    noteDetailViewModel.delete()
-                    Snackbar.make(root.rootView, R.string.deleted_note, Snackbar.LENGTH_LONG)
-                        .show()
-                    findNavController().popBackStack()
-                    findNavController().navigateUp()
+        binding = FragmentDeleteConfirmationBinding.inflate(inflater, container, false)
+            .apply {
+                viewModel = noteDetailViewModel
+                lifecycleOwner = viewLifecycleOwner
+                confirmationCallback = object : ConfirmedCallback {
+                    override fun confirm() {
+                        noteDetailViewModel.delete()
+                        Snackbar.make(root.rootView, R.string.deleted_note, Snackbar.LENGTH_LONG)
+                            .show()
+                        findNavController().popBackStack()
+                        findNavController().navigateUp()
+                    }
                 }
-            }
 
-            cancelledCallback = object : CancelledCallback {
-                override fun cancel() {
-                    findNavController().navigateUp()
+                cancelledCallback = object : CancelledCallback {
+                    override fun cancel() {
+                        findNavController().navigateUp()
+                    }
                 }
             }
-        }
         return binding.root
     }
 

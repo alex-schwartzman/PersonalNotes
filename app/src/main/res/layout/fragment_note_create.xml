@@ -71,6 +71,7 @@
             android:clipToPadding="false"
             >
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/create_note_card"
                 android:layout_width="match_parent"
                 android:layout_height="800dp"
                 android:layout_marginStart="@dimen/card_side_margin"
@@ -98,11 +99,12 @@
                         tools:text="Apple" />
 
                     <ImageButton
+                        android:id="@+id/button_discard_draft"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/margin_normal"
-                        android:contentDescription="@string/delete_button"
+                        android:contentDescription="@string/discard_draft_description"
                         android:src="@android:drawable/ic_delete"
                         tools:src="@android:drawable/ic_delete"
                         android:onClick="@{() -> discardCallback.discard()}"/>

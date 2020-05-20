@@ -15,6 +15,7 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/list_item_note_holder_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/card_side_margin"

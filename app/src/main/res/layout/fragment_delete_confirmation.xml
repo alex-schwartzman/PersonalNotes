@@ -79,6 +79,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/are_you_sure_to_delete_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -136,7 +137,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/delete_button"
+                        android:id="@+id/delete_confirm_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="@{()->confirmationCallback.confirm()}"

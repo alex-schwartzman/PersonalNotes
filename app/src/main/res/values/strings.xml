@@ -13,4 +13,5 @@
     <string name="note_delete_confirmation">Confirm delete</string>
     <string name="note_deletion_long_warning">The following note will be irreversibly deleted from ze cloud storage:</string>
     <string name="cancel_deletion_text">BACK</string>
+    <string name="discard_draft_description">discard draft</string>
 </resources>

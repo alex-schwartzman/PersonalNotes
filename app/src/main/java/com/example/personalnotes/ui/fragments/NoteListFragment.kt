@@ -10,11 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.personalnotes.databinding.FragmentNoteListBinding
+import com.example.personalnotes.databinding.NoteListViewModel
 import com.example.personalnotes.datastore.InjectorUtils
 import com.example.personalnotes.ui.adapters.NoteAdapter
-import com.example.personalnotes.databinding.NoteListViewModel
 
 class NoteListFragment : Fragment() {
+
+    private lateinit var binding: FragmentNoteListBinding
 
     private val viewModel: NoteListViewModel by viewModels {
         InjectorUtils.provideNoteListViewModelFactory(this)
@@ -25,7 +27,7 @@ class NoteListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentNoteListBinding.inflate(inflater, container, false)
+        binding = FragmentNoteListBinding.inflate(inflater, container, false)
         context ?: return binding.root
         val adapter = NoteAdapter()
         binding.noteList.adapter = adapter
